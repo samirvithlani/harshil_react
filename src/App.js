@@ -3,27 +3,43 @@ import './App.css';
 import { Signup } from './component/signup';
 import Login from './component/login';
 import { LoginForm } from './component/LoginForm';
+import { useState } from 'react';
+import { Task } from './component/Task';
+
 
 function App() {
-  var no1 = 100
-  var no2 = 200
-  var name = "harshil"
 
-  var users = [{
-    name: "samir",
-    id: 101,
-    age: 15
-  },
-  {
-    name: "harshik",
-    id: 102,
-    age: 14
+  const [tasks, settasks] = useState([
+    {
+      tId:101,
+      tName:"java"
+    },
+    {
+      tId:102,
+      tName:"python"
+    },
+    {
+      tId:103,
+      tName:"c++"
+    }
+  ])
+  const deleteTask = (task)=>{
+
+    console.log("deleteing.....",task)
+
+    
+    settasks(tasks.filter((t)=>{
+
+      return t !== task;
+    }))
+
+    console.log(tasks)
+
   }
-  ]
   return (
     <div>
 
-    <LoginForm/>
+      <Task tasks ={tasks} deleteTask = {deleteTask}/>
 
     </div>
   );
