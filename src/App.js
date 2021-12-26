@@ -5,6 +5,7 @@ import Login from './component/login';
 import { LoginForm } from './component/LoginForm';
 import { useState } from 'react';
 import { Task } from './component/Task';
+import { AddTask } from './component/AddTask';
 
 
 function App() {
@@ -23,6 +24,12 @@ function App() {
       tName:"c++"
     }
   ])
+  const addTicket =(ticektObj)=>{
+
+    console.log("add ticket called...",ticektObj)
+
+    settasks([...tasks,ticektObj])
+  }
   const deleteTask = (task)=>{
 
     console.log("deleteing.....",task)
@@ -39,6 +46,7 @@ function App() {
   return (
     <div>
 
+      <AddTask addTicket = {addTicket}/>
       <Task tasks ={tasks} deleteTask = {deleteTask}/>
 
     </div>

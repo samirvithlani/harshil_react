@@ -3,12 +3,14 @@ import { TaskList } from './TaskList'
 
 export const Task = (props) => {
     
+    const style ={
+        color: "lightblue"
+
+    }
     console.log("props.task",props.tasks)
     console.log("len...",props.tasks.length)
     return (
-        <div>
-            
-            
+        <div style = {style}>        
             {
             props.tasks.length <= 0 ? "TASK NOT FOUND...." :
 
