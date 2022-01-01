@@ -6,36 +6,41 @@ import { LoginForm } from './component/LoginForm';
 import { useState } from 'react';
 import { Task } from './component/Task';
 import { AddTask } from './component/AddTask';
+import { Menu } from './pages/Menu';
+import { Routes,Route } from 'react-router-dom';
+import { AddProduct } from './pages/AddProduct';
+import { ProductList } from './pages/ProductList';
+import { Product } from './pages/Product';
 
 
 function App() {
 
   const [tasks, settasks] = useState([
     {
-      tId:101,
-      tName:"java"
+      tId: 101,
+      tName: "java"
     },
     {
-      tId:102,
-      tName:"python"
+      tId: 102,
+      tName: "python"
     },
     {
-      tId:103,
-      tName:"c++"
+      tId: 103,
+      tName: "c++"
     }
   ])
-  const addTicket =(ticektObj)=>{
+  const addTicket = (ticektObj) => {
 
-    console.log("add ticket called...",ticektObj)
+    console.log("add ticket called...", ticektObj)
 
-    settasks([...tasks,ticektObj])
+    settasks([...tasks, ticektObj])
   }
-  const deleteTask = (task)=>{
+  const deleteTask = (task) => {
 
-    console.log("deleteing.....",task)
+    console.log("deleteing.....", task)
 
-    
-    settasks(tasks.filter((t)=>{
+
+    settasks(tasks.filter((t) => {
 
       return t !== task;
     }))
@@ -46,8 +51,16 @@ function App() {
   return (
     <div>
 
-      <AddTask addTicket = {addTicket}/>
-      <Task tasks ={tasks} deleteTask = {deleteTask}/>
+      {/* <AddTask addTicket = {addTicket}/>
+      <Task tasks ={tasks} deleteTask = {deleteTask}/> */}
+
+      <Menu />
+      <Routes>
+      <Route path = "addproduct" element={<AddProduct/>}/>
+      <Route path = "productlist" element={<ProductList/>}/>
+      <Route path = "product" element={<ProductList/>}/>
+      <Route path = "product/:id" element={<Product/>}/> 
+      </Routes>
 
     </div>
   );
