@@ -11,6 +11,7 @@ import { Routes,Route } from 'react-router-dom';
 import { AddProduct } from './pages/AddProduct';
 import { ProductList } from './pages/ProductList';
 import { Product } from './pages/Product';
+import { SImpleForm } from './component/SImpleForm';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
       {/* <AddTask addTicket = {addTicket}/>
       <Task tasks ={tasks} deleteTask = {deleteTask}/> */}
 
+      <SImpleForm/>
       <Menu />
       <Routes>
       <Route path = "addproduct" element={<AddProduct/>}/>
