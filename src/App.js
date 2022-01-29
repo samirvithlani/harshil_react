@@ -12,6 +12,8 @@ import { AddProduct } from './pages/AddProduct';
 import { ProductList } from './pages/ProductList';
 import { Product } from './pages/Product';
 import { SImpleForm } from './component/SImpleForm';
+import { ApiComponenet } from './api/ApiComponenet';
+import { GetApi } from './apibackup/GetApi';
 
 
 function App() {
@@ -55,8 +57,10 @@ function App() {
       {/* <AddTask addTicket = {addTicket}/>
       <Task tasks ={tasks} deleteTask = {deleteTask}/> */}
 
+      <GetApi/>
       <SImpleForm/>
       <Menu />
+      <ApiComponenet/>
       <Routes>
       <Route path = "addproduct" element={<AddProduct/>}/>
       <Route path = "productlist" element={<ProductList/>}/>
